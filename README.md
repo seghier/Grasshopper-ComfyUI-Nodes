@@ -32,7 +32,7 @@ This repository facilitates the integration of ComfyUI workflow into Grasshopper
 When using them, make sure to give them a nickname and an id (optional to sort the inputs in Grasshopper). Required nicknames are: `seed`, `cfg`, `denoise`, `steps`, `width`, `height`, `positive`, `negative`, `sampler`, `scheduler`.
 
 ## Screenshots:
-![Screenshot 1](https://github.com/seghier/Grasshopper_ComfyUI/assets/6026588/f9a3c4e7-5a18-4522-a17d-6585b2df2366)
+![Screenshot 2024-04-18 061143](https://github.com/seghier/Grasshopper_ComfyUI/assets/6026588/76a2204e-3891-4204-87d4-6ddaf52703fd)
 ![Screenshot 2](https://github.com/seghier/Grasshopper_ComfyUI/assets/6026588/65ce6fad-682c-4f4f-8666-fcb9d1bfdc65)
 
 ## Usage Steps:
