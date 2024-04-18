@@ -1,0 +1,355 @@
+{
+  "3": {
+    "inputs": {
+      "seed": [
+        "36",
+        0
+      ],
+      "steps": [
+        "39",
+        0
+      ],
+      "cfg": [
+        "37",
+        0
+      ],
+      "sampler_name": [
+        "38",
+        0
+      ],
+      "scheduler": [
+        "41",
+        0
+      ],
+      "denoise": [
+        "40",
+        0
+      ],
+      "model": [
+        "10",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "4": {
+    "inputs": {
+      "ckpt_name": [
+        "30",
+        0
+      ]
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": [
+        "31",
+        0
+      ],
+      "height": [
+        "31",
+        0
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": [
+        "58",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": [
+        "59",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "10": {
+    "inputs": {
+      "config": "SDXL, Conv Injection",
+      "weight": 1,
+      "model": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "LayeredDiffusionApply",
+    "_meta": {
+      "title": "Layer Diffuse Apply"
+    }
+  },
+  "15": {
+    "inputs": {
+      "model": "TripoSR_3D.ckpt",
+      "chunk_size": 8192
+    },
+    "class_type": "TripoSRModelLoader",
+    "_meta": {
+      "title": "TripoSR Model Loader"
+    }
+  },
+  "16": {
+    "inputs": {
+      "geometry_resolution": [
+        "32",
+        0
+      ],
+      "threshold": 25,
+      "model": [
+        "15",
+        0
+      ],
+      "reference_image": [
+        "28",
+        0
+      ],
+      "reference_mask": [
+        "28",
+        1
+      ]
+    },
+    "class_type": "TripoSRSampler",
+    "_meta": {
+      "title": "TripoSR Sampler"
+    }
+  },
+  "17": {
+    "inputs": {
+      "preview3d": null,
+      "mesh": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "TripoSRViewer",
+    "_meta": {
+      "title": "TripoSR Viewer"
+    }
+  },
+  "28": {
+    "inputs": {
+      "sd_version": [
+        "60",
+        0
+      ],
+      "sub_batch_size": 16,
+      "samples": [
+        "3",
+        0
+      ],
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "LayeredDiffusionDecode",
+    "_meta": {
+      "title": "Layer Diffuse Decode"
+    }
+  },
+  "30": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 2,
+      "nickname": "model"
+    },
+    "class_type": "GHString",
+    "_meta": {
+      "title": "GHString"
+    }
+  },
+  "31": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 3,
+      "nickname": "imageWH"
+    },
+    "class_type": "GHInteger",
+    "_meta": {
+      "title": "GHInteger"
+    }
+  },
+  "32": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 4,
+      "nickname": "resolution"
+    },
+    "class_type": "GHInteger",
+    "_meta": {
+      "title": "GHInteger"
+    }
+  },
+  "36": {
+    "inputs": {
+      "input_val": 2,
+      "input_id": 5,
+      "nickname": "seed"
+    },
+    "class_type": "GHInteger",
+    "_meta": {
+      "title": "GHInteger"
+    }
+  },
+  "37": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 7,
+      "nickname": "cfg"
+    },
+    "class_type": "GHFloat",
+    "_meta": {
+      "title": "GHFloat"
+    }
+  },
+  "38": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 8,
+      "nickname": "sampler"
+    },
+    "class_type": "GHString",
+    "_meta": {
+      "title": "GHString"
+    }
+  },
+  "39": {
+    "inputs": {
+      "input_val": 2,
+      "input_id": 6,
+      "nickname": "steps"
+    },
+    "class_type": "GHInteger",
+    "_meta": {
+      "title": "GHInteger"
+    }
+  },
+  "40": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 10,
+      "nickname": "denoise"
+    },
+    "class_type": "GHFloat",
+    "_meta": {
+      "title": "GHFloat"
+    }
+  },
+  "41": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 9,
+      "nickname": "scheduler"
+    },
+    "class_type": "GHString",
+    "_meta": {
+      "title": "GHString"
+    }
+  },
+  "58": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 0,
+      "nickname": "positive"
+    },
+    "class_type": "GHPrompt",
+    "_meta": {
+      "title": "GHPrompt"
+    }
+  },
+  "59": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 1,
+      "nickname": "negative"
+    },
+    "class_type": "GHPrompt",
+    "_meta": {
+      "title": "GHPrompt"
+    }
+  },
+  "60": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 0,
+      "nickname": "sdversion"
+    },
+    "class_type": "GHString",
+    "_meta": {
+      "title": "GHString"
+    }
+  },
+  "62": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}
