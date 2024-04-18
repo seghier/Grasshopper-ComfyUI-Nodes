@@ -1,0 +1,577 @@
+{
+  "3": {
+    "inputs": {
+      "seed": [
+        "79",
+        0
+      ],
+      "steps": [
+        "80",
+        0
+      ],
+      "cfg": [
+        "81",
+        0
+      ],
+      "sampler_name": [
+        "83",
+        0
+      ],
+      "scheduler": [
+        "84",
+        0
+      ],
+      "denoise": [
+        "82",
+        0
+      ],
+      "model": [
+        "14",
+        0
+      ],
+      "positive": [
+        "16",
+        0
+      ],
+      "negative": [
+        "28",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": [
+        "53",
+        0
+      ],
+      "height": [
+        "53",
+        1
+      ],
+      "batch_size": [
+        "76",
+        0
+      ]
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": [
+        "47",
+        0
+      ],
+      "clip": [
+        "14",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "14",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "10": {
+    "inputs": {
+      "strength": [
+        "78",
+        0
+      ],
+      "conditioning": [
+        "51",
+        0
+      ],
+      "control_net": [
+        "12",
+        0
+      ],
+      "image": [
+        "65",
+        0
+      ]
+    },
+    "class_type": "ControlNetApply",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "12": {
+    "inputs": {
+      "control_net_name": [
+        "69",
+        0
+      ]
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "14": {
+    "inputs": {
+      "ckpt_name": [
+        "68",
+        0
+      ]
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "16": {
+    "inputs": {
+      "conditioning": [
+        "10",
+        0
+      ],
+      "style_model": [
+        "17",
+        0
+      ],
+      "clip_vision_output": [
+        "18",
+        0
+      ]
+    },
+    "class_type": "StyleModelApply",
+    "_meta": {
+      "title": "Apply Style Model"
+    }
+  },
+  "17": {
+    "inputs": {
+      "style_model_name": [
+        "72",
+        0
+      ]
+    },
+    "class_type": "StyleModelLoader",
+    "_meta": {
+      "title": "Load Style Model"
+    }
+  },
+  "18": {
+    "inputs": {
+      "clip_vision": [
+        "20",
+        0
+      ],
+      "image": [
+        "66",
+        0
+      ]
+    },
+    "class_type": "CLIPVisionEncode",
+    "_meta": {
+      "title": "CLIP Vision Encode"
+    }
+  },
+  "20": {
+    "inputs": {
+      "clip_name": [
+        "71",
+        0
+      ]
+    },
+    "class_type": "CLIPVisionLoader",
+    "_meta": {
+      "title": "Load CLIP Vision"
+    }
+  },
+  "27": {
+    "inputs": {
+      "postive_prompt": [
+        "47",
+        0
+      ],
+      "base_negative": "text, watermark, incorrect reflections",
+      "enhancenegative": 1,
+      "insanitylevel": 2,
+      "base_model": "SD1.5",
+      "seed": 53814827217538
+    },
+    "class_type": "AutoNegativePrompt",
+    "_meta": {
+      "title": "Auto Negative Prompt"
+    }
+  },
+  "28": {
+    "inputs": {
+      "text": [
+        "27",
+        0
+      ],
+      "clip": [
+        "14",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "47": {
+    "inputs": {
+      "text_positive": [
+        "58",
+        0
+      ],
+      "text_negative": "",
+      "style": "misc-architectural",
+      "log_prompt": true,
+      "style_positive": true,
+      "style_negative": true
+    },
+    "class_type": "SDXLPromptStyler",
+    "_meta": {
+      "title": "SDXL Prompt Styler"
+    }
+  },
+  "50": {
+    "inputs": {
+      "control_net_name": [
+        "70",
+        0
+      ]
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "51": {
+    "inputs": {
+      "strength": [
+        "77",
+        0
+      ],
+      "conditioning": [
+        "6",
+        0
+      ],
+      "control_net": [
+        "50",
+        0
+      ],
+      "image": [
+        "67",
+        0
+      ]
+    },
+    "class_type": "ControlNetApply",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "53": {
+    "inputs": {
+      "min_width": 512,
+      "image": [
+        "65",
+        0
+      ]
+    },
+    "class_type": "GetImageSize_",
+    "_meta": {
+      "title": "Get Image Size"
+    }
+  },
+  "58": {
+    "inputs": {
+      "input_val": "building realistic, ((best quality)), ((masterpiece)), (detailed), trees, 4k, hires, car, birds",
+      "input_id": 0,
+      "nickname": "positive"
+    },
+    "class_type": "GHPrompt",
+    "_meta": {
+      "title": "GHPrompt"
+    }
+  },
+  "65": {
+    "inputs": {
+      "input_val": [
+        "73",
+        0
+      ],
+      "invert_mask": false,
+      "input_id": 0,
+      "nickname": "sketch"
+    },
+    "class_type": "LoadImageGH",
+    "_meta": {
+      "title": "LoadImageGH"
+    }
+  },
+  "66": {
+    "inputs": {
+      "input_val": [
+        "74",
+        0
+      ],
+      "invert_mask": false,
+      "input_id": 0,
+      "nickname": "style"
+    },
+    "class_type": "LoadImageGH",
+    "_meta": {
+      "title": "LoadImageGH"
+    }
+  },
+  "67": {
+    "inputs": {
+      "input_val": [
+        "75",
+        0
+      ],
+      "invert_mask": false,
+      "input_id": 0,
+      "nickname": "depth"
+    },
+    "class_type": "LoadImageGH",
+    "_meta": {
+      "title": "LoadImageGH"
+    }
+  },
+  "68": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 5,
+      "nickname": "model"
+    },
+    "class_type": "GHString",
+    "_meta": {
+      "title": "GHString"
+    }
+  },
+  "69": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 7,
+      "nickname": "contolnetsketch"
+    },
+    "class_type": "GHString",
+    "_meta": {
+      "title": "GHString"
+    }
+  },
+  "70": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 8,
+      "nickname": "contolnetdepth"
+    },
+    "class_type": "GHString",
+    "_meta": {
+      "title": "GHString"
+    }
+  },
+  "71": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 6,
+      "nickname": "clipvision"
+    },
+    "class_type": "GHString",
+    "_meta": {
+      "title": "GHString"
+    }
+  },
+  "72": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 9,
+      "nickname": "stylemodel"
+    },
+    "class_type": "GHString",
+    "_meta": {
+      "title": "GHString"
+    }
+  },
+  "73": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 1,
+      "nickname": "imagesketch"
+    },
+    "class_type": "GHFile",
+    "_meta": {
+      "title": "GHFile"
+    }
+  },
+  "74": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 3,
+      "nickname": "imagestyle"
+    },
+    "class_type": "GHFile",
+    "_meta": {
+      "title": "GHFile"
+    }
+  },
+  "75": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 2,
+      "nickname": "imagedepth"
+    },
+    "class_type": "GHFile",
+    "_meta": {
+      "title": "GHFile"
+    }
+  },
+  "76": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 4,
+      "nickname": "batch"
+    },
+    "class_type": "GHInteger",
+    "_meta": {
+      "title": "GHInteger"
+    }
+  },
+  "77": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 11,
+      "nickname": "controlnetdepthstrength"
+    },
+    "class_type": "GHFloat",
+    "_meta": {
+      "title": "GHFloat"
+    }
+  },
+  "78": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 10,
+      "nickname": "controlnetsketchstrength"
+    },
+    "class_type": "GHFloat",
+    "_meta": {
+      "title": "GHFloat"
+    }
+  },
+  "79": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 12,
+      "nickname": "seed"
+    },
+    "class_type": "GHInteger",
+    "_meta": {
+      "title": "GHInteger"
+    }
+  },
+  "80": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 14,
+      "nickname": "steps"
+    },
+    "class_type": "GHInteger",
+    "_meta": {
+      "title": "GHInteger"
+    }
+  },
+  "81": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 13,
+      "nickname": "cfg"
+    },
+    "class_type": "GHFloat",
+    "_meta": {
+      "title": "GHFloat"
+    }
+  },
+  "82": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 15,
+      "nickname": "denoise"
+    },
+    "class_type": "GHFloat",
+    "_meta": {
+      "title": "GHFloat"
+    }
+  },
+  "83": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 16,
+      "nickname": "sampler"
+    },
+    "class_type": "GHString",
+    "_meta": {
+      "title": "GHString"
+    }
+  },
+  "84": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 17,
+      "nickname": "scheduler"
+    },
+    "class_type": "GHString",
+    "_meta": {
+      "title": "GHString"
+    }
+  },
+  "85": {
+    "inputs": {
+      "text": [
+        "47",
+        1
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  }
+}
