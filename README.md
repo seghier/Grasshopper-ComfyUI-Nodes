@@ -57,4 +57,4 @@ All images and meshes will be saved in the default folder: `<A>:\ComfyUI_windows
 ## Important:
 - I have an old laptop that doesn't support GPU, so I can't provide any help for ComfyUI workflows.
 - Feel free to fix and improve the components and the scripts.
-- If you find this is useful: [Buy me a Coffee](https://buymeacoffee.com/seghierhttps://buymeacoffee.com/seghier)
+- If you find this is useful: [Buy me a Coffee](https://buymeacoffee.com/seghier?t=true)
