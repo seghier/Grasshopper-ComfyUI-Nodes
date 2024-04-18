@@ -1,0 +1,275 @@
+{
+  "3": {
+    "inputs": {
+      "seed": [
+        "17",
+        0
+      ],
+      "steps": [
+        "18",
+        0
+      ],
+      "cfg": [
+        "21",
+        0
+      ],
+      "sampler_name": [
+        "19",
+        0
+      ],
+      "scheduler": [
+        "20",
+        0
+      ],
+      "denoise": [
+        "22",
+        0
+      ],
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "4": {
+    "inputs": {
+      "ckpt_name": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": [
+        "15",
+        0
+      ],
+      "height": [
+        "16",
+        0
+      ],
+      "batch_size": [
+        "27",
+        0
+      ]
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": [
+        "23",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": [
+        "24",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "13": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 2,
+      "nickname": "model"
+    },
+    "class_type": "GHString",
+    "_meta": {
+      "title": "GHString"
+    }
+  },
+  "15": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 3,
+      "nickname": "width"
+    },
+    "class_type": "GHInteger",
+    "_meta": {
+      "title": "GHInteger"
+    }
+  },
+  "16": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 4,
+      "nickname": "height"
+    },
+    "class_type": "GHInteger",
+    "_meta": {
+      "title": "GHInteger"
+    }
+  },
+  "17": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 6,
+      "nickname": "seed"
+    },
+    "class_type": "GHInteger",
+    "_meta": {
+      "title": "GHInteger"
+    }
+  },
+  "18": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 7,
+      "nickname": "steps"
+    },
+    "class_type": "GHInteger",
+    "_meta": {
+      "title": "GHInteger"
+    }
+  },
+  "19": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 10,
+      "nickname": "sampler"
+    },
+    "class_type": "GHString",
+    "_meta": {
+      "title": "GHString"
+    }
+  },
+  "20": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 11,
+      "nickname": "scheduler"
+    },
+    "class_type": "GHString",
+    "_meta": {
+      "title": "GHString"
+    }
+  },
+  "21": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 8,
+      "nickname": "cfg"
+    },
+    "class_type": "GHFloat",
+    "_meta": {
+      "title": "GHFloat"
+    }
+  },
+  "22": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 9,
+      "nickname": "denoise"
+    },
+    "class_type": "GHFloat",
+    "_meta": {
+      "title": "GHFloat"
+    }
+  },
+  "23": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 0,
+      "nickname": "positive"
+    },
+    "class_type": "GHPrompt",
+    "_meta": {
+      "title": "GHPrompt"
+    }
+  },
+  "24": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 1,
+      "nickname": "negative"
+    },
+    "class_type": "GHPrompt",
+    "_meta": {
+      "title": "GHPrompt"
+    }
+  },
+  "27": {
+    "inputs": {
+      "input_val": 0,
+      "input_id": 5,
+      "nickname": "batch"
+    },
+    "class_type": "GHInteger",
+    "_meta": {
+      "title": "GHInteger"
+    }
+  },
+  "36": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}
