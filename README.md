@@ -1,71 +1,57 @@
 # Grasshopper_ComfyUI
-# Convert and use ComfyUI workflow within Grasshopper
+## Convert and Use ComfyUI Workflow within Grasshopper
 
-1- Download and use ComfyUI portable version: https://github.com/comfyanonymous/ComfyUI
+This repository facilitates the integration of ComfyUI workflow into Grasshopper.
 
-2- Copy ComfyUI UserObjects folder to: C:\Users\<yourname>\AppData\Roaming\Grasshopper\UserObjects
+## Installation Steps:
 
-3- Copy GHComfyUI folder to: C:\Users\<yourname>\AppData\Roaming\Grasshopper\Libraries
+1. Download and use the ComfyUI portable version from https://github.com/comfyanonymous/ComfyUI.
 
-The components appears in Params\ComfyUI
+2. Copy the `ComfyUI UserObjects` folder to: `C:\Users\<yourname>\AppData\Roaming\Grasshopper\UserObjects`.
 
-4- Modify the Folder of ComfyUI_windows_portable in run_cpu_gh.bat and run_gpu_gh.bat:
+3. Copy the `GHComfyUI` folder to: `C:\Users\<yourname>\AppData\Roaming\Grasshopper\Libraries`. The components will appear in `Params\ComfyUI`.
 
-set python_executable=E:\ComfyUI_windows_portable\python_embeded\python.exe
-set python_script=E:\ComfyUI_windows_portable\ComfyUI\main.py
+4. Modify the folder paths in `run_cpu_gh.bat` and `run_gpu_gh.bat`:
+    ```batch
+    set python_executable=E:\ComfyUI_windows_portable\python_embeded\python.exe
+    set python_script=E:\ComfyUI_windows_portable\ComfyUI\main.py
+    ```
+   Copy the modified files to `<A>:\ComfyUI_windows_portable\`.
 
-And copy the two files to <A>:\ComfyUI_windows_portable\
+5. Copy `gh_nodes.py` to `<A>:\ComfyUI_windows_portable\ComfyUI\custom_nodes`. The custom nodes will appear under Grasshopper in the nodes menu.
 
-5- Copy gh_nodes.py to <A>:\ComfyUI_windows_portable\ComfyUI\custom_nodes
+## Available Nodes:
+- GHPrompt
+- GHString
+- GHInteger
+- GHFloat
+- GHBool
+- GHFile
+- GHLoadImage
 
-gh_nodes will appears under Grasshopper in nodes menu
+When using them, make sure to give them a nickname and an id (optional to sort the inputs in Grasshopper). Required nicknames are: `seed`, `cfg`, `denoise`, `steps`, `width`, `height`, `positive`, `negative`, `sampler`, `scheduler`.
 
-There are 7 nodes:
+## Screenshots:
+![Screenshot 1](https://github.com/seghier/Grasshopper_ComfyUI/assets/6026588/f9a3c4e7-5a18-4522-a17d-6585b2df2366)
+![Screenshot 2](https://github.com/seghier/Grasshopper_ComfyUI/assets/6026588/65ce6fad-682c-4f4f-8666-fcb9d1bfdc65)
 
-GHPrompt, GHString, GHInteger, GHFloat, GHBool, GHFile, GHLoadImage
+## Usage Steps:
+1. Create your final workflow in ComfyUI.
+2. Save the JSON file without spaces in the name.
+3. Save the API JSON file without spaces in the name.
+4. Launch ComfyUI: "you can use Run ComfyUI component".
+5. In Grasshopper, use Json to Python component to convert API JSON file to Python file and save the file.
+6. Use Load Model component to choose a model: checkpoint, lora, controlnet, etc.
+7. Use Samplers and Schedulers components.
+8. Use ComfyUI Settings and AddSources components to create the command arguments.
+   - The inputs are created automatically when you plug ComfyUI Inputs from Json to Python component to Inputs.
+   - Right-click on ComfyUI Settings component to enable Delete inputs; when you unplug the Inputs, all other inputs are deleted.
+   - Right-click on AddSources component to enable Disable update if you want to keep the previously created sliders, panels, etc.
+9. If `GHInteger_seed = -1`, this creates a random seed; otherwise, you can fix it, and you can use Sampler seed component.
+10. Use Queue Prompt to run the queue, and always check ComfyUI cmd window or [http://127.0.0.1:8188](http://127.0.0.1:8188) to make sure it is running.
 
-When you use them make sure to give them a nickname and id(optional to sort the inputs in Grasshopper)
+All images and meshes will be saved in the default folder: `<A>:\ComfyUI_windows_portable\ComfyUI\output\`. Use Image file or Mesh File components to get the latest file created, and use Load Mesh Result component to open the mesh file.
 
-Nicknames must used: seed, cfg, denoise, steps, width, height, positive, negative, sampler, scheduler
-
-![Screenshot 2024-04-18 061143](https://github.com/seghier/Grasshopper_ComfyUI/assets/6026588/f9a3c4e7-5a18-4522-a17d-6585b2df2366)
-
-![Screenshot 2024-04-18 061545](https://github.com/seghier/Grasshopper_ComfyUI/assets/6026588/65ce6fad-682c-4f4f-8666-fcb9d1bfdc65)
-
-# Steps:
-
-1- Create your final workflow in ComfyUI.
-
-2- Save the JSON file without spaces in the name.
-
-3- Save The API JSON file without spaces in the name.
-
-4- Launch ComfyUI: "you can use Run ComfyUI component".
-
-5- In Grasshopper use Json to Python component to convert API JSON file to Python file and save the file.
-
-6- Use Load Model component to choose a model: checkpoint, lora, controlnet ,....etc.
-
-7- Use Samplers and Schedulers components.
-
-8- Use ComfyUI Settings and AddSources components to create the command arguments.
-
-  The inputs created automatically when you plug ComfyUI Inputs from Json to Python component to Inputs.
-  
-  Right click on ComfyUI Settings component to enable Delete inputs, when you unplug the Inputs all other inputs deleted.
-  
-  Right click on AddSources component to enable Disable update if you want keep the previous sliders, panels ... created.
-  
-If GHInteger_seed = -1 this create a random seed, otherwise you can fix it and you can use Sampler seed component.
-
-9- Use Queue Prompt to run the queue, and always check ComfyUI cmd window or http://127.0.0.1:8188 to make sure it running.
-
-10- All images, meshes will saved in the default folder: <A>:\ComfyUI_windows_portable\ComfyUI\output\
-
-Use Image file or Mesh File components to get the latest file created, and use Load Mesh Result component to open the mesh file.
-
-# Important:
-
-- I have an old laptop which don't support gpu so i can't give any help for ComfyUI workflows.
-
-- Fill free to fix and improve the componets and the scripts.
+## Important:
+- I have an old laptop that doesn't support GPU, so I can't provide any help for ComfyUI workflows.
+- Feel free to fix and improve the components and the scripts.
