@@ -27,7 +27,7 @@ This repository facilitates the integration of ComfyUI workflow into Grasshopper
 - GHFloat
 - GHBool
 - GHFile
-- GHLoadImage
+- LoadImageGH
 
 When using them, make sure to give them a nickname and an id (optional to sort the inputs in Grasshopper). Required nicknames are: `seed`, `cfg`, `denoise`, `steps`, `width`, `height`, `positive`, `negative`, `sampler`, `scheduler`.
 
