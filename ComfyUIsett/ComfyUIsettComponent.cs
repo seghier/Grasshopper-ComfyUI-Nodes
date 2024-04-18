@@ -145,7 +145,7 @@ namespace ComfyUIsett
 
         List<string> count = new List<string>();
         List<string> inputsValues = new List<string>();
-        private List<string> comfyinputs = new List<string>() { "GHString", "GHFile", "GHLoadImage", "GHSaveImage", "GHInteger", "GHFloat", "GHBool", "GHPrompt", "APIjsonfile" };
+        private List<string> comfyinputs = new List<string>() { "GHString", "GHFile", "GHInteger", "GHFloat", "GHBool", "GHPrompt", "APIjsonfile" };
 
         List<string> NewList(List<string> inputs_, List<string> values_)
         {
@@ -167,7 +167,7 @@ namespace ComfyUIsett
                 {
                     newinput = "--" + inputs_[i] + " " + GetSeed();
                 }
-                else if (inputs_[i].Contains("GHPrompt") || inputs_[i].Contains("GHFile") || inputs_[i].Contains("GHImage") || inputs_[i].Contains("GHSaveImage") || inputs_[i] == "APIjsonfile")
+                else if (inputs_[i].Contains("GHPrompt") || inputs_[i].Contains("GHFile") || inputs_[i] == "APIjsonfile")
                 {
                     newinput = "--" + inputs_[i] + " " + '"' + values_[i] + '"';
                 }

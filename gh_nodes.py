@@ -29,7 +29,7 @@ class GHNode:
     def run(self, *args, **kwargs):
         raise NotImplementedError("run method must be implemented in subclasses.")
 
-class GHLoadImage:
+class LoadImageGH:
     @classmethod
     def INPUT_TYPES(s):     
         return {
@@ -49,7 +49,7 @@ class GHLoadImage:
     CATEGORY = "Grasshopper"
     
     def load_image(self, input_val, invert_mask, input_id, nickname):
-        image_path = GHLoadImage._resolve_path(input_val)
+        image_path = LoadImageGH._resolve_path(input_val)
 
         i = Image.open(image_path).convert("RGBA")  # Open image with alpha channel
         i = ImageOps.exif_transpose(i)
@@ -74,7 +74,7 @@ class GHLoadImage:
 
     @classmethod
     def IS_CHANGED(cls, input_val):
-        image_path = GHLoadImage._resolve_path(input_val)
+        image_path = LoadImageGH._resolve_path(input_val)
         m = hashlib.sha256()
         with open(image_path, 'rb') as f:
             m.update(f.read())
@@ -189,7 +189,7 @@ NODE_CLASS_MAPPINGS = {
     "GHFloat": GHFloat,
     "GHBool": GHBool,
     "GHFile": GHFile,
-    "GHLoadImage": GHLoadImage,
+    "LoadImageGH": LoadImageGH,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -199,5 +199,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "GHFloat": "GHFloat",
     "GHBool": "GHBool",
     "GHFile": "GHFile",
-    "GHLoadImage": "GHLoadImage",
+    "LoadImageGH": "LoadImageGH",
 }

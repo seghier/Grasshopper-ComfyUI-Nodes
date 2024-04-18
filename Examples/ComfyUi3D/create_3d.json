@@ -1,0 +1,139 @@
+{
+  "1": {
+    "inputs": {
+      "model": [
+        "9",
+        0
+      ],
+      "chunk_size": 8192
+    },
+    "class_type": "TripoSRModelLoader",
+    "_meta": {
+      "title": "TripoSR Model Loader"
+    }
+  },
+  "2": {
+    "inputs": {
+      "preview3d": null,
+      "mesh": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "TripoSRViewer",
+    "_meta": {
+      "title": "TripoSR Viewer"
+    }
+  },
+  "3": {
+    "inputs": {
+      "geometry_resolution": [
+        "25",
+        0
+      ],
+      "threshold": 25,
+      "model": [
+        "1",
+        0
+      ],
+      "reference_image": [
+        "56",
+        0
+      ],
+      "reference_mask": [
+        "56",
+        1
+      ]
+    },
+    "class_type": "TripoSRSampler",
+    "_meta": {
+      "title": "TripoSR Sampler"
+    }
+  },
+  "9": {
+    "inputs": {
+      "input_val": "TripoSR_3D.ckpt",
+      "input_id": 0,
+      "nickname": "model"
+    },
+    "class_type": "GHFile",
+    "_meta": {
+      "title": "GHFile"
+    }
+  },
+  "25": {
+    "inputs": {
+      "input_val": 128,
+      "input_id": 1,
+      "nickname": "resolution"
+    },
+    "class_type": "GHInteger",
+    "_meta": {
+      "title": "GHInteger"
+    }
+  },
+  "29": {
+    "inputs": {
+      "images": [
+        "56",
+        1
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "49": {
+    "inputs": {
+      "images": [
+        "56",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "56": {
+    "inputs": {
+      "input_val": [
+        "62",
+        0
+      ],
+      "invert_mask": [
+        "59",
+        0
+      ],
+      "input_id": 0,
+      "nickname": ""
+    },
+    "class_type": "LoadImageGH",
+    "_meta": {
+      "title": "LoadImageGH"
+    }
+  },
+  "59": {
+    "inputs": {
+      "input_val": true,
+      "input_id": 2,
+      "nickname": "invertmask"
+    },
+    "class_type": "GHBool",
+    "_meta": {
+      "title": "GHBool"
+    }
+  },
+  "62": {
+    "inputs": {
+      "input_val": "",
+      "input_id": 3,
+      "nickname": "imagefile"
+    },
+    "class_type": "GHFile",
+    "_meta": {
+      "title": "GHFile"
+    }
+  }
+}

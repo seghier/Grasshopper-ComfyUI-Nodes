@@ -75,7 +75,7 @@ namespace ComfyUIsett
                 gdoc.ScheduleSolution(5, SolutionCallback);
         }
 
-        private List<string> comfyinputs = new List<string>() { "GHString", "GHFile", "GHLoadImage", "GHSaveImage", "GHInteger", "GHFloat", "GHBool", "GHPrompt", "APIjsonfile" };
+        private List<string> comfyinputs = new List<string>() { "GHString", "GHFile", "GHInteger", "GHFloat", "GHBool", "GHPrompt", "APIjsonfile" };
 
         private void SolutionCallback(GH_Document doc)
         {
@@ -120,7 +120,7 @@ namespace ComfyUIsett
                             doc.AddObject(toggle, false);
                             targetComponent.Params.Input[i].AddSource(toggle);
                         }
-                        else if (targetComponent.Params.Input[i].NickName.Contains("GHFile") || targetComponent.Params.Input[i].NickName.Contains("GHLoadImage") || targetComponent.Params.Input[i].NickName.Contains("GHSaveImage"))
+                        else if (targetComponent.Params.Input[i].NickName.Contains("GHFile"))
                         {
                             var filepath = AddFilePath(targetComponent, i, nickname);
                             doc.AddObject(filepath, false);
