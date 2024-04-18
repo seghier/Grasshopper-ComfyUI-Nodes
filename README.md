@@ -11,14 +11,16 @@ This repository facilitates the integration of ComfyUI workflow into Grasshopper
 
 3. Copy the `GHComfyUI` folder to: `C:\Users\<yourname>\AppData\Roaming\Grasshopper\Libraries`. The components will appear in `Params\ComfyUI`.
 
-4. Modify the folder paths in `run_cpu_gh.bat` and `run_gpu_gh.bat`:
+![Screenshot 2024-04-18 073219](https://github.com/seghier/Grasshopper_ComfyUI/assets/6026588/bc94b339-3ef8-40f4-adcd-16efea146edc)
+
+5. Modify the folder paths in `run_cpu_gh.bat` and `run_gpu_gh.bat`:
     ```batch
     set python_executable=E:\ComfyUI_windows_portable\python_embeded\python.exe
     set python_script=E:\ComfyUI_windows_portable\ComfyUI\main.py
     ```
    Copy the modified files to `<A>:\ComfyUI_windows_portable\`.
 
-5. Copy `gh_nodes.py` to `<A>:\ComfyUI_windows_portable\ComfyUI\custom_nodes`. The custom nodes will appear under Grasshopper in the nodes menu.
+6. Copy `gh_nodes.py` to `<A>:\ComfyUI_windows_portable\ComfyUI\custom_nodes`. The custom nodes will appear under Grasshopper in the nodes menu.
 
 ## Available Nodes:
 - GHPrompt
@@ -27,12 +29,12 @@ This repository facilitates the integration of ComfyUI workflow into Grasshopper
 - GHFloat
 - GHBool
 - GHFile
-- GHLoadImage
+- LoadImageGH
 
 When using them, make sure to give them a nickname and an id (optional to sort the inputs in Grasshopper). Required nicknames are: `seed`, `cfg`, `denoise`, `steps`, `width`, `height`, `positive`, `negative`, `sampler`, `scheduler`.
 
 ## Screenshots:
-![Screenshot 1](https://github.com/seghier/Grasshopper_ComfyUI/assets/6026588/f9a3c4e7-5a18-4522-a17d-6585b2df2366)
+![Screenshot 2024-04-18 061143](https://github.com/seghier/Grasshopper_ComfyUI/assets/6026588/76a2204e-3891-4204-87d4-6ddaf52703fd)
 ![Screenshot 2](https://github.com/seghier/Grasshopper_ComfyUI/assets/6026588/65ce6fad-682c-4f4f-8666-fcb9d1bfdc65)
 
 ## Usage Steps:
@@ -55,3 +57,4 @@ All images and meshes will be saved in the default folder: `<A>:\ComfyUI_windows
 ## Important:
 - I have an old laptop that doesn't support GPU, so I can't provide any help for ComfyUI workflows.
 - Feel free to fix and improve the components and the scripts.
+- If you find this is useful: [Buy me a Coffee](https://buymeacoffee.com/seghier?t=true)
