@@ -11,14 +11,16 @@ This repository facilitates the integration of ComfyUI workflow into Grasshopper
 
 3. Copy the `GHComfyUI` folder to: `C:\Users\<yourname>\AppData\Roaming\Grasshopper\Libraries`. The components will appear in `Params\ComfyUI`.
 
-4. Modify the folder paths in `run_cpu_gh.bat` and `run_gpu_gh.bat`:
+![Screenshot 2024-04-18 073219](https://github.com/seghier/Grasshopper_ComfyUI/assets/6026588/bc94b339-3ef8-40f4-adcd-16efea146edc)
+
+5. Modify the folder paths in `run_cpu_gh.bat` and `run_gpu_gh.bat`:
     ```batch
     set python_executable=E:\ComfyUI_windows_portable\python_embeded\python.exe
     set python_script=E:\ComfyUI_windows_portable\ComfyUI\main.py
     ```
    Copy the modified files to `<A>:\ComfyUI_windows_portable\`.
 
-5. Copy `gh_nodes.py` to `<A>:\ComfyUI_windows_portable\ComfyUI\custom_nodes`. The custom nodes will appear under Grasshopper in the nodes menu.
+6. Copy `gh_nodes.py` to `<A>:\ComfyUI_windows_portable\ComfyUI\custom_nodes`. The custom nodes will appear under Grasshopper in the nodes menu.
 
 ## Available Nodes:
 - GHPrompt
