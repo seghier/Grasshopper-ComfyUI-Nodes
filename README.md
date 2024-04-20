@@ -23,6 +23,7 @@ This repository facilitates the integration of ComfyUI workflow into Grasshopper
 6. Copy `gh_nodes.py` to `<A>:\ComfyUI_windows_portable\ComfyUI\custom_nodes`. The custom nodes will appear under Grasshopper in the nodes menu.
 
 ## Available Nodes:
+- GHSampler
 - GHPrompt
 - GHString
 - GHInteger
@@ -31,7 +32,7 @@ This repository facilitates the integration of ComfyUI workflow into Grasshopper
 - GHFile
 - LoadImageGH
 
-When using them, make sure to give them a nickname and an id (optional to sort the inputs in Grasshopper). Required nicknames are: `seed`, `cfg`, `denoise`, `steps`, `width`, `height`, `positive`, `negative`, `sampler`, `scheduler`.
+When using them, make sure to give them a nickname. Required nicknames are: `seed`, `cfg`, `denoise`, `steps`, `width`, `height`, `positive`, `negative`, `sampler`, `scheduler`, .....
 
 ## Screenshots:
 ![Screenshot 2024-04-18 061143](https://github.com/seghier/Grasshopper_ComfyUI/assets/6026588/76a2204e-3891-4204-87d4-6ddaf52703fd)
