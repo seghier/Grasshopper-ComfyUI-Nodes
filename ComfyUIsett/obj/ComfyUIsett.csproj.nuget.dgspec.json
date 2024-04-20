@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\archi\\source\\repos\\ComfyUIsett\\ComfyUIsett.csproj": {}
+    "C:\\Users\\archi\\source\\repos\\Grasshopper_ComfyUI\\ComfyUIsett\\ComfyUIsett.csproj": {}
   },
   "projects": {
-    "C:\\Users\\archi\\source\\repos\\ComfyUIsett\\ComfyUIsett.csproj": {
+    "C:\\Users\\archi\\source\\repos\\Grasshopper_ComfyUI\\ComfyUIsett\\ComfyUIsett.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\archi\\source\\repos\\ComfyUIsett\\ComfyUIsett.csproj",
+        "projectUniqueName": "C:\\Users\\archi\\source\\repos\\Grasshopper_ComfyUI\\ComfyUIsett\\ComfyUIsett.csproj",
         "projectName": "ComfyUIsett",
-        "projectPath": "C:\\Users\\archi\\source\\repos\\ComfyUIsett\\ComfyUIsett.csproj",
+        "projectPath": "C:\\Users\\archi\\source\\repos\\Grasshopper_ComfyUI\\ComfyUIsett\\ComfyUIsett.csproj",
         "packagesPath": "C:\\Users\\archi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\archi\\source\\repos\\ComfyUIsett\\obj\\",
+        "outputPath": "C:\\Users\\archi\\source\\repos\\Grasshopper_ComfyUI\\ComfyUIsett\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,12 @@
       "frameworks": {
         "net48": {
           "targetAlias": "net48",
+          "dependencies": {
+            "Grasshopper": {
+              "target": "Package",
+              "version": "[7.35.23346.11001, )"
+            }
+          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.408\\RuntimeIdentifierGraph.json"
         }
       }

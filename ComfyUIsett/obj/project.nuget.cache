@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Evb7BPzv/e/Q7QnxIcctRTUvNa4At+QsilofX8Zuh2gONePI4hGMP3V0ADsXiLZXS9kAeOJVyb+sKsrgZpufbw==",
+  "dgSpecHash": "xDxdX6DSiiEdbv/YWbT1uCN7ci43vrn2whaMc1hFxEnk11kk7TqG0QTwA+jOHHkwKOFSomhK/quXk03Iopr8Qg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\archi\\source\\repos\\ComfyUIsett\\ComfyUIsett.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\archi\\source\\repos\\Grasshopper_ComfyUI\\ComfyUIsett\\ComfyUIsett.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\archi\\.nuget\\packages\\grasshopper\\7.35.23346.11001\\grasshopper.7.35.23346.11001.nupkg.sha512",
+    "C:\\Users\\archi\\.nuget\\packages\\rhinocommon\\7.35.23346.11001\\rhinocommon.7.35.23346.11001.nupkg.sha512"
+  ],
   "logs": []
 }

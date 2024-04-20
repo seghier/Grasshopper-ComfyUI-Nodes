@@ -36,7 +36,6 @@ class LoadImageGH:
             "required": {
                 "input_val": ("STRING", {"multiline": False}),
                 "invert_mask": ("BOOLEAN", {"default": False}),
-                "input_id": ("INT", {"default": 0}),
                 "nickname": ("STRING", {"multiline": False}),
             }
         }
@@ -98,13 +97,12 @@ class GHFloat(GHNode):
         return {
             "required": {
                 "input_val": ("FLOAT", {"default": 0.00}),
-                "input_id": ("INT", {"default": 0}),
                 "nickname": ("STRING", {"multiline": False}),
             }
         }
         
     RETURN_NAMES = ("float",)
-    def run(self, input_val, input_id, nickname):
+    def run(self, input_val, nickname):
         return (input_val,)
 
 class GHInteger(GHNode):
@@ -113,13 +111,12 @@ class GHInteger(GHNode):
         return {
             "required": {
                 "input_val": ("INT", {"default": 0}),
-                "input_id": ("INT", {"default": 0}),
                 "nickname": ("STRING", {"multiline": False}),
             }
         }
         
     RETURN_NAMES = ("integer",)
-    def run(self, input_val, input_id, nickname):
+    def run(self, input_val, nickname):
         return (input_val,)
 
 class GHBool(GHNode):
@@ -128,13 +125,12 @@ class GHBool(GHNode):
         return {
             "required": {
                 "input_val": ("BOOLEAN", {"default": False}),
-                "input_id": ("INT", {"default": 0}),
                 "nickname": ("STRING", {"multiline": False}),
             }
         }
         
     RETURN_NAMES = ("boolean",)
-    def run(self, input_val, input_id, nickname):
+    def run(self, input_val, nickname):
         return (input_val,)
 
 class GHFile(GHNode):
@@ -143,13 +139,12 @@ class GHFile(GHNode):
         return {
             "required": {
                 "input_val": ("STRING", {"multiline": False}),
-                "input_id": ("INT", {"default": 0}),
                 "nickname": ("STRING", {"multiline": False}),
             }
         }
         
     RETURN_NAMES = ("file",)
-    def run(self, input_val, input_id, nickname):
+    def run(self, input_val, nickname):
         return (input_val,)
         
 class GHString(GHNode):
@@ -158,13 +153,12 @@ class GHString(GHNode):
         return {
             "required": {
                 "input_val": ("STRING", {"multiline": False}),
-                "input_id": ("INT", {"default": 0}),
                 "nickname": ("STRING", {"multiline": False}),
             }
         }
         
     RETURN_NAMES = ("string",)
-    def run(self, input_val, input_id, nickname):
+    def run(self, input_val, nickname):
         return (input_val,)
 
 class GHPrompt(GHNode):
@@ -173,31 +167,57 @@ class GHPrompt(GHNode):
         return {
             "required": {
                 "input_val": ("STRING", {"multiline": True}),
-                "input_id": ("INT", {"default": 0}),
                 "nickname": ("STRING", {"multiline": False}),
             }
         }
         
     RETURN_NAMES = ("prompt",)
-    def run(self, input_val, input_id, nickname):
+    def run(self, input_val, nickname):
         return (input_val,)
+
+class GHSampler:
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "input_val_seed": ("INT", {"default": -1}),
+                "input_val_steps": ("INT", {"default": 10}),
+                "input_val_cfg": ("FLOAT", {"default": 6}),
+                "input_val_sampler": ("STRING", {"default": "dpmpp_2m_sde","multiline": False}),
+                "input_val_scheduler": ("STRING", {"default": "karras","multiline": False}),
+                "input_val_denoise": ("FLOAT", {"default": 1}),
+                "nickname": ("STRING", {"multiline": False}),
+            }
+        }
+        
+    RETURN_TYPES = (any_type,any_type,any_type,any_type,any_type,any_type,)
+    RETURN_NAMES = ("seed","steps","cfg","sampler","scheduler","denoise",)
+    
+    FUNCTION = "run"
+    OUTPUT_NODE = True
+    CATEGORY = "Grasshopper"
+    
+    def run(self, input_val_seed,input_val_steps,input_val_cfg,input_val_sampler,input_val_scheduler,input_val_denoise, nickname):
+        return (input_val_seed,input_val_steps,input_val_cfg,input_val_sampler,input_val_scheduler,input_val_denoise,)
  
 NODE_CLASS_MAPPINGS = {
+    "GHSampler": GHSampler,
     "GHPrompt": GHPrompt,
     "GHString": GHString,
     "GHInteger": GHInteger,
     "GHFloat": GHFloat,
     "GHBool": GHBool,
     "GHFile": GHFile,
-    "LoadImageGH": LoadImageGH,
+    "LoadImageGH": LoadImageGH   
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
+    "GHSampler": "GHSampler",
     "GHPrompt": "GHPrompt",
     "GHString": "GHString",
     "GHInteger": "GHInteger",
     "GHFloat": "GHFloat",
     "GHBool": "GHBool",
     "GHFile": "GHFile",
-    "LoadImageGH": "LoadImageGH",
+    "LoadImageGH": "LoadImageGH"
 }
