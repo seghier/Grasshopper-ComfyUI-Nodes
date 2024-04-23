@@ -47,7 +47,7 @@ class LoadImageGH:
     OUTPUT_NODE = True
     CATEGORY = "Grasshopper"
     
-    def load_image(self, input_val, invert_mask, input_id, nickname):
+    def load_image(self, input_val, invert_mask, nickname):
         image_path = LoadImageGH._resolve_path(input_val)
 
         i = Image.open(image_path).convert("RGBA")  # Open image with alpha channel

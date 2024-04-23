@@ -53,7 +53,6 @@
   "9": {
     "inputs": {
       "input_val": "TripoSR_3D.ckpt",
-      "input_id": 0,
       "nickname": "model"
     },
     "class_type": "GHFile",
@@ -64,7 +63,6 @@
   "25": {
     "inputs": {
       "input_val": 128,
-      "input_id": 1,
       "nickname": "resolution"
     },
     "class_type": "GHInteger",
@@ -106,7 +104,6 @@
         "59",
         0
       ],
-      "input_id": 0,
       "nickname": ""
     },
     "class_type": "LoadImageGH",
@@ -117,7 +114,6 @@
   "59": {
     "inputs": {
       "input_val": true,
-      "input_id": 2,
       "nickname": "invertmask"
     },
     "class_type": "GHBool",
@@ -128,7 +124,6 @@
   "62": {
     "inputs": {
       "input_val": "",
-      "input_id": 3,
       "nickname": "imagefile"
     },
     "class_type": "GHFile",
