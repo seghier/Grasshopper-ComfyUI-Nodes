@@ -4,6 +4,10 @@ from typing import Tuple
 import hashlib
 from PIL import Image, ImageOps
 
+import base64
+import socket
+from io import BytesIO
+
 import numpy as np
 
 import folder_paths
@@ -199,7 +203,83 @@ class GHSampler:
     
     def run(self, input_val_seed,input_val_steps,input_val_cfg,input_val_sampler,input_val_scheduler,input_val_denoise, nickname):
         return (input_val_seed,input_val_steps,input_val_cfg,input_val_sampler,input_val_scheduler,input_val_denoise,)
- 
+
+"""
+class GHReceivedImage:
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "nickname": ("STRING", {"multiline": False}),
+            }
+        }
+        
+    RETURN_TYPES = ("IMAGE", )
+    RETURN_NAMES = ("received image",)
+    FUNCTION = "load_image"
+    OUTPUT_NODE = True
+    CATEGORY = "Grasshopper"
+
+    @classmethod
+    def IS_CHANGED(s, *args, **kwargs):
+        return torch.rand(1).item()
+        
+    def __init__(self):
+        super().__init__()  # Call superclass constructor
+        self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.server.bind(('127.0.0.1', 8888))
+        self.server.listen(1)
+        print(f"Waiting for connection...")
+
+    def receive_image(self):
+        try:
+            self.server.settimeout(30)  # Set timeout to 60 seconds
+            conn, addr = self.server.accept()
+            print(f"Connected to {addr}")
+
+            data = b""
+            while True:
+                chunk = conn.recv(1024)
+                if not chunk:
+                    break
+                data += chunk
+                
+            if data:
+                img = Image.open(BytesIO(data))
+                img = img.convert("RGB")
+                img = np.array(img).astype(np.float32) / 255.0
+                img = torch.from_numpy(img)[None,]
+                
+            return img
+            
+        except socket.timeout:
+            print("Timeout: No response from the server after 1 minute.")
+            return None
+            
+        except Exception as e:
+            print("Error occurred during image receiving:", e)
+            return None
+            
+        finally:
+            if 'conn' in locals():
+                conn.close()  # Close the connection if it was established
+
+    def load_image(self, nickname): 
+        try:
+            num = torch.randint(0, 1000, (1,)).item()
+            received_image = self.receive_image()
+            
+            if received_image is None:
+                return None  # Return None if no image was received
+        
+            outdata = [received_image, num]
+            return (outdata[0], )
+
+        except Exception as e:
+            print("Error occurred during image receiving:", e)
+            return None
+"""
+       
 NODE_CLASS_MAPPINGS = {
     "GHSampler": GHSampler,
     "GHPrompt": GHPrompt,
@@ -208,7 +288,8 @@ NODE_CLASS_MAPPINGS = {
     "GHFloat": GHFloat,
     "GHBool": GHBool,
     "GHFile": GHFile,
-    "LoadImageGH": LoadImageGH   
+    "LoadImageGH": LoadImageGH
+    #"GHReceivedImage": GHReceivedImage
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -220,4 +301,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "GHBool": "GHBool",
     "GHFile": "GHFile",
     "LoadImageGH": "LoadImageGH"
+    #"GHReceivedImage": "GHReceivedImage"
 }
