@@ -1,6 +1,6 @@
 # Created by Seghier Mohamed Abdelaziz - seghierdesign@gmail.com
-        
 # C:\Users\archi\source\repos\Grasshopper_ComfyUI\Examples\ComfyUi3D\create_3d.json
+
 import json
 import sys
 from urllib import request
@@ -35,12 +35,9 @@ with open(APIjsonfile, 'r', encoding='utf-8') as file:
     prompt = json.load(file)
 
 # GH inputs
-#class type: GHBool
-prompt["59"]["inputs"]["input_val"] = GHBool_invertmask
-#class type: GHInteger
-prompt["25"]["inputs"]["input_val"] = GHInteger_resolution
-#class type: GHFile
-prompt["62"]["inputs"]["input_val"] = GHFile_imagefile
-prompt["9"]["inputs"]["input_val"] = GHFile_model
+prompt["9"]["inputs"]["model"] = GHFile_model
+prompt["25"]["inputs"]["resolution"] = GHInteger_resolution
+prompt["59"]["inputs"]["invertmask"] = GHBool_invertmask
+prompt["62"]["inputs"]["imagefile"] = GHFile_imagefile
 
 queue_prompt(prompt)
